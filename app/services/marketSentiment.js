@@ -15,9 +15,7 @@ async function getMarketSentiment() {
       },
     });
 
-    if (!response.ok) {
-      throw new Error(`Failed to fetch data: ${response.statusText}`);
-    }
+    if (!response.ok) throw new Error(`Failed to fetch data: ${response.statusText}`);
 
     const data = await response.json();
     let news = ''
