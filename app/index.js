@@ -4,6 +4,6 @@ import { marketPrices } from './services/marketPrices.js';
 
 globalTime();
 console.log('');
-await marketPrices();
-console.log('');
 await getMarketSentiment();
+console.log('');
+await marketPrices();
