@@ -4,7 +4,7 @@ dotenv.config();
 
 const apiUrl = 'https://developers.coinmarketcal.com/v1/events';
 const queryParams = new URLSearchParams({ max: 100, showOnly: 'trending_events', sortBy: 'date_event_asc' });
-const apiKey = process.env.APIKEYCAL;
+const apiKey = process.env.API_KEY_CAL;
 
 const options = {
   method: 'GET',

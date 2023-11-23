@@ -2,7 +2,7 @@ import dotenv from 'dotenv';
 import fetch from 'node-fetch';
 dotenv.config();
 
-const apiKey = process.env.GPTAPI;
+const apiKey = process.env.GPT_API;
 const apiUrl = 'https://api.openai.com/v1/chat/completions';
 
 const sendMessageToChatGPT = async (message) => {
