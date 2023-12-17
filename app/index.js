@@ -1,12 +1,12 @@
 import { globalTime } from './services/globalTime.js';
-import { getMarketSentiment } from './services/marketSentiment.js';
-import { marketPrices } from './services/marketPrices.js';
-import { marketCalendar } from './services/marketCalendar.js';
+import { callVictor } from './MasonAnalytica/victorMateu.js';
+import { callBill } from './MasonAnalytica/dollarBill.js';
+import { callBen } from './MasonAnalytica/benKim.js';
 
 globalTime();
 console.log('');
-// await marketCalendar();
+await callVictor();
+console.log('');
+await callBill();
 // console.log('');
-// await getMarketSentiment();
-// console.log('');
-// await marketPrices();
+// await callBen();

@@ -18,9 +18,8 @@ const marketPrices = async () => {
   const table = getTable(tickers);
   
   console.table(tickers);
-  console.log('');
-  const prompt = `analyze the data of the following table and separate in bulletpoints the most important insights per coins and compare them using these insights: ${table}`;
-  const chatGPTResponse = await sendMessageToChatGPT(prompt);
+  const prompt = `Analiza los datos de la siguiente tabla y separe en viñetas los conocimientos más importantes por moneda y compárelos utilizando estos conocimientos: ${table}`;
+  return await sendMessageToChatGPT(prompt);
 }
 
 export { marketPrices };

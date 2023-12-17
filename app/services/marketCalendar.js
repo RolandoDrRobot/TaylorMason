@@ -21,14 +21,14 @@ async function marketCalendar() {
 
     if (response.ok) {
       const data = await response.json();
-      console.log('Retreiving next trending events...');
+      let message = '';
+
       data.body.forEach(event => {
-        console.log('')
-        console.log(event.displayed_date);
-        console.log(event.title.en);
-        console.log(event.proof);
-        console.log(event.source);
+        const newEvent = `🎯 ${event.displayed_date}\n ${event.title.en}\n <${event.source}>\n\n`;
+        message += newEvent;
       });
+
+      return message;
 
     } else {
       console.error('Error fetching data:', response.statusText);
@@ -40,24 +40,3 @@ async function marketCalendar() {
 
 export { marketCalendar }
 
-// Categories
-// {
-//   body: [
-//     { id: 1, name: 'Release' },
-//     { id: 2, name: 'Branding' },
-//     { id: 3, name: 'Tokenomics' },
-//     { id: 4, name: 'Exchange' },
-//     { id: 5, name: 'Conference' },
-//     { id: 6, name: 'Meetup' },
-//     { id: 7, name: 'Other' },
-//     { id: 8, name: 'Airdrop/Snapshot' },
-//     { id: 9, name: 'AMA' },
-//     { id: 11, name: 'Partnership' },
-//     { id: 13, name: 'Roadmap Update' },
-//     { id: 14, name: 'Fork/Swap' },
-//     { id: 15, name: 'Whitepaper Update' },
-//     { id: 16, name: 'Team Update' },
-//     { id: 17, name: 'Staking/Farming' },
-//     { id: 18, name: 'Integration' }
-//   ]
-// }

@@ -22,10 +22,8 @@ async function getMarketSentiment() {
     for (let i = 0; i < 10; i++) {
       news = news + '  ' + data.Data[i].body
     }
-    console.log('Analysing Market Sentiment...');
-    console.log('');
-    const prompt = `Analyze the financial news, resume It with bulletpoints and sort them by sentiment (positive, neutral, negative) and give an explanation:  ${news}`;
-    const chatGPTResponse = await sendMessageToChatGPT(prompt);
+    const prompt = `Analiza las noticias financieras, resúmalas con viñetas y ordénelas por sentimiento (positivo, neutral, negativo) y dé una explicación: ${news}`;
+    return await sendMessageToChatGPT(prompt);
   } catch (error) {
     console.error('Error:', error.message);
   }
