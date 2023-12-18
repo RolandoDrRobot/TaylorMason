@@ -1,14 +1,9 @@
 import { getMarketSentiment } from '../services/marketSentiment.js';
 import { sendMessageToChatGPT } from '../services/chatGPT.js';
 import { postOnDiscord } from '../services/postOnDiscord.js';
-import readline from 'readline';
+import { getLatestNews } from '../services/latestNews.js';
 import dotenv from 'dotenv';
 dotenv.config();
-
-const rl = readline.createInterface({
-  input: process.stdin,
-  output: process.stdout
-});
 
 const victorMateu = {
   username: 'Victor Mateu',
@@ -19,15 +14,11 @@ const victorMateu = {
 const greeting = await sendMessageToChatGPT(victorMateu.greetingPrompt);
 
 const callVictor = async () => {
-  let aiResponse = await getMarketSentiment('BTC');
-  await rl.question('\na) Género un nuevo análisis? b) Público el análisis anterior? x) No hago nada: ', (answer) => {
-    if (answer == 'a') callVictor();
-    if (answer == 'b') {
-      postOnDiscord(victorMateu, greeting);
-      postOnDiscord(victorMateu, aiResponse);
-    }
-    if (answer == 'x') rl.close();
-  });
+  let sentiment = await getMarketSentiment('BTC');
+  let latestNews = await getLatestNews('BTC');
+  postOnDiscord(victorMateu, greeting);
+  postOnDiscord(victorMateu, sentiment);
+  postOnDiscord(victorMateu, latestNews);
 }
 
 export { callVictor }
