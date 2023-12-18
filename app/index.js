@@ -4,9 +4,9 @@ import { callBill } from './MasonAnalytica/dollarBill.js';
 import { callBen } from './MasonAnalytica/benKim.js';
 
 globalTime();
-console.log('');
-await callVictor();
 // console.log('');
-// await callBen();
+// await callVictor();
+console.log('');
+await callBen();
 // console.log('');
 // await callBill();
