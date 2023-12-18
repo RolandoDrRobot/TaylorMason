@@ -3,10 +3,12 @@ import dotenv from 'dotenv';
 import fetch from 'node-fetch';
 dotenv.config();
 
-const apiKey = process.env.CRYPTO_COMPARE;
-const apiUrl = 'https://min-api.cryptocompare.com/data/v2/news/?lang=EN&categories=BTC';
 
-async function getMarketSentiment() {
+
+async function getMarketSentiment(category) {
+  const apiKey = process.env.CRYPTO_COMPARE;
+  const apiUrl = `https://min-api.cryptocompare.com/data/v2/news/?lang=EN&categories=${category}`;
+
   try {
     const response = await fetch(apiUrl, {
       headers: {
@@ -18,6 +20,7 @@ async function getMarketSentiment() {
     if (!response.ok) throw new Error(`Failed to fetch data: ${response.statusText}`);
 
     const data = await response.json();
+
     let news = ''
     for (let i = 0; i < 8; i++) {
       news = news + '  ' + data.Data[i].body
