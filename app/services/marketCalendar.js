@@ -24,6 +24,7 @@ async function marketCalendar() {
       let message = '';
 
       data.body.forEach(event => {
+        console.log(data.body);
         const newEvent = `🎯 ${event.displayed_date}\n ${event.title.en}\n <${event.source}>\n\n`;
         message += newEvent;
       });
@@ -39,4 +40,3 @@ async function marketCalendar() {
 };
 
 export { marketCalendar }
-

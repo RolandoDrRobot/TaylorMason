@@ -1,4 +1,4 @@
-import { marketPrices } from '../services/marketPrices.js';
+import { marketCalendar } from '../services/marketCalendar.js';
 import { postOnDiscord } from '../services/postOnDiscord.js';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -9,7 +9,7 @@ const benKim = {
 }
 
 const callBen = async () => {
-  await postOnDiscord(benKim, await marketPrices());
+  await postOnDiscord(benKim, await marketCalendar());
 }
 
 export { callBen }
