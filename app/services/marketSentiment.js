@@ -19,10 +19,10 @@ async function getMarketSentiment() {
 
     const data = await response.json();
     let news = ''
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 8; i++) {
       news = news + '  ' + data.Data[i].body
     }
-    const prompt = `Analiza las noticias financieras, resúmalas con viñetas y ordénelas por sentimiento (positivo, neutral, negativo) y dé una explicación: ${news}`;
+    const prompt = `Analiza las noticias financieras, explicalas en viñetas  y ordénelas por sentimiento (positivo, neutral, negativo), este es un resumen para inversionistas: ${news}. Respondeme en español con un máximo de 2000 caracteres.`;
     return await sendMessageToChatGPT(prompt);
   } catch (error) {
     console.error('Error:', error.message);
