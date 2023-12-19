@@ -13,8 +13,8 @@ const dollarBill = {
 const greeting = await sendMessageToChatGPT(dollarBill.greetingPrompt);
 
 const callBill = async () => {
-  const { title, message } = await getQuickPlay('BTC');
-  await postOnDiscord(dollarBill, greeting);
+  const { title, message } = await getQuickPlay('BTC', 0);
+  // await postOnDiscord(dollarBill, greeting);
   await postOnDiscord(dollarBill, title);
   await postOnDiscord(dollarBill, message);
 }

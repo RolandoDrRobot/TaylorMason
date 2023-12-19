@@ -13,7 +13,7 @@ const chuckRhodes = {
 const greeting = await sendMessageToChatGPT(chuckRhodes.greetingPrompt);
 
 const callChuck = async () => {
-  const { title, message } = await getQuickPlay('REGULATION');
+  const { title, message } = await getQuickPlay('REGULATION', 0);
   await postOnDiscord(chuckRhodes, greeting);
   await postOnDiscord(chuckRhodes, title);
   await postOnDiscord(chuckRhodes, message);
