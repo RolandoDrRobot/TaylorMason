@@ -3,7 +3,7 @@ import dotenv from 'dotenv';
 import fetch from 'node-fetch';
 dotenv.config();
 
-async function getMarketSentiment(category) {
+async function getQuickPlay(category) {
   const apiKey = process.env.CRYPTO_COMPARE;
   const apiUrl = `https://min-api.cryptocompare.com/data/v2/news/?lang=EN&sortOrder=latest&categories=${category}`;
 
@@ -18,16 +18,13 @@ async function getMarketSentiment(category) {
     if (!response.ok) throw new Error(`Failed to fetch data: ${response.statusText}`);
 
     const data = await response.json();
-
-    let news = ''
-    for (let i = 0; i < 8; i++) {
-      news = news + '  ' + data.Data[i].body
-    }
-    const prompt = `Analiza las noticias financieras, explicalas en viñetas  y ordénelas por sentimiento (positivo, neutral, negativo), este es un resumen para inversionistas: ${news}. Respondeme en español con un máximo de 2000 caracteres.`;
-    return await sendMessageToChatGPT(prompt);
-  } catch (error) {
+    const prompt = `Respondeme en español en menos de 1000 letras. Analiza esta noticia, crea para mi una estrategia de inversion avanzada que pueda aprovechar la informacion en esta noticia: ${data.Data[1].body}.`;
+    const title = `\n\n🐲 ${data.Data[1].title}\n ☁️ ${data.Data[1].url}\n\n`;
+    const message = await sendMessageToChatGPT(prompt);
+    return { title, message };
+} catch (error) {
     console.error('Error:', error.message);
   }
 }
 
-export { getMarketSentiment };
+export { getQuickPlay };

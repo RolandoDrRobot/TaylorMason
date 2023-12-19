@@ -32,7 +32,6 @@ const sendMessageToChatGPT = async (message) => {
 
     const result = await response.json();
     const assistantReply = result.choices[0].message.content;
-    console.log('Assistant:', assistantReply);
     return assistantReply;
   } catch (error) {
     console.error('Error:', error.message);

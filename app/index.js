@@ -5,7 +5,7 @@ import { callBen } from './MasonAnalytica/benKim.js';
 import { callSacker } from './MasonAnalytica/kateSacker.js';
 
 globalTime();
-await callBen();
-await callVictor();
-await callSacker();
-// await callBill();
+// await callBen();
+// await callVictor();
+// await callSacker();
+await callBill();
