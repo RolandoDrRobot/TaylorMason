@@ -18,7 +18,6 @@ const callSacker = async () => {
   let latestNews = await getLatestNews('REGULATION');
   await postOnDiscord(kateSacker, greeting);
   await postOnDiscord(kateSacker, sentiment);
-  console.log(latestNews);
   await postOnDiscord(kateSacker, latestNews);
 }
 

@@ -4,8 +4,8 @@ import { callSacker } from './MasonAnalytica/kateSacker.js';
 import { callChuck } from './MasonAnalytica/chuckRhodes.js';
 import { callBen } from './MasonAnalytica/benKim.js';
 
-// // await callVictor();
+// await callVictor();
 // await callBill();
-// // await callSacker();
-// // await callChuck();
-// // await callBen();
+// await callSacker();
+// await callChuck();
+// await callBen();

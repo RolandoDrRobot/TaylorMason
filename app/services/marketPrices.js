@@ -17,8 +17,7 @@ const marketPrices = async () => {
   const tickers = await binance.fetchTickers(['BTC/USDT', 'ETH/USDT', 'XRP/USDT', 'BNB/USDT', 'SOL/USDT', 'DOT/USDT']);
   const table = getTable(tickers);
   
-  console.table(tickers);
-  const prompt = `Analiza los datos de la siguiente tabla y separe en viñetas los conocimientos más importantes por moneda y compárelos utilizando estos conocimientos: ${table}`;
+  const prompt = `Anuncia los precios de las siguientes criptomonedas y separalos en viñetas por moneda y compáralos usando la siguiente tabla, incluye solo Percentage y Bid, usa emoticones: ${table}`;
   return await sendMessageToChatGPT(prompt);
 }
 

@@ -1,3 +1,4 @@
+import { marketPrices } from '../services/marketPrices.js';
 import { getMarketSentiment } from '../services/marketSentiment.js';
 import { sendMessageToChatGPT } from '../services/chatGPT.js';
 import { postOnDiscord } from '../services/postOnDiscord.js';
@@ -17,6 +18,7 @@ const callVictor = async () => {
   let sentiment = await getMarketSentiment('BTC');
   let latestNews = await getLatestNews('BTC');
   postOnDiscord(victorMateu, greeting);
+  postOnDiscord(victorMateu, await marketPrices());
   postOnDiscord(victorMateu, sentiment);
   postOnDiscord(victorMateu, latestNews);
 }
