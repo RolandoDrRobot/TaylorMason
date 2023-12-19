@@ -19,7 +19,7 @@ async function getLatestNews(category) {
     const data = await response.json();
     let message = '🌞 Estas son las últimas noticas:\n';
 
-    for (let i = 0; i < 10; i++) {
+    for (let i = 0; i < 8; i++) {
       const newEvent = `\n🐲 ${data.Data[i].title}\n ☁️ <${data.Data[i].url}>\n`;
       message += newEvent;
     }

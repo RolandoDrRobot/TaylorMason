@@ -16,7 +16,6 @@ const callBill = async () => {
   const { title, message } = await getQuickPlay('BTC');
   await postOnDiscord(dollarBill, greeting);
   await postOnDiscord(dollarBill, title);
-  console.log(message);
   await postOnDiscord(dollarBill, message);
 }
 
