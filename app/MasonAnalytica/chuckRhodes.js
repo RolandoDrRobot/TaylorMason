@@ -1,3 +1,4 @@
+import { sendMessageToChatGPT } from '../services/chatGPT.js';
 import { postOnDiscord } from '../services/postOnDiscord.js';
 import { getQuickPlay } from '../services/quickPlay.js';
 import dotenv from 'dotenv';
